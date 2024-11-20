@@ -4,6 +4,8 @@ object within"""
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn import svm
+from sklearn.metrics import accuracy_score, confusion_matrix
 
 print("This is a testing program using OpenCV library")
 print(cv2.__version__)
@@ -52,15 +54,23 @@ faces = face_cascade.detectMultiScale(gray_image, 1.1, 4)
 for (x, y, w, h) in faces:
     cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
 
+# Model training
+clf = svm.SVC(gamma='scale')
+clf.fit(train_data, train_labels)
+
 
 
 # 4. Prediction of Unseen Images
 # Evaluate the performance of your model on a reserved validation dataset of images.
+predicted_labels = clf.predict(test_data)
 
+
+accuracy = accuracy_score(test_labels, predicted_labels)
+matrix = confusion_matrix(test_labels, predicted_labels)
 
 
 # plt.hist(img.ravel(), bins=256, range=(0.0, 1.0), fc='k', ec='k')
-histr = cv2.calcHist([image],[0],None,[256],[0,256]) 
+# histr = cv2.calcHist([image],[0],None,[256],[0,256]) 
 
 #RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 #GRAYSCALE_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
