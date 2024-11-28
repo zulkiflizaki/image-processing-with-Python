@@ -4,13 +4,13 @@
 import os
 import cv2
 import numpy as np
+import face_recognition
 
 print(cv2.__version__)
 if hasattr(cv2, 'face'):
     print("cv2.face module is available!")
 else:
     print("cv2.face module is not available.")
-
 
 
 people = ['Ben Afflek', 'Elton John', 'Jerry Seinfield', 'Madonna', 'Mindy Kaling']

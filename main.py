@@ -1,4 +1,4 @@
-"""Advanced Artificial Intellifence - Use an object recognition technique to analyse images and deduce the
+"""Advanced Artificial Intelligence - Use an object recognition technique to analyse images and deduce the
 object within"""
 
 import cv2
