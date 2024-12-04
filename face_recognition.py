@@ -1,5 +1,4 @@
 """Image Recognition"""
-
 #pylint:disable=no-member
 
 import numpy as np
@@ -14,7 +13,7 @@ people = ['Ben Afflek', 'Elton John', 'Jerry Seinfield', 'Madonna', 'Mindy Kalin
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
 face_recognizer.read('face_trained.yml')
 
-img = cv.imread(r'/Faces/val/elton_john/1.jpg')
+img = cv.imread('Faces/val/jerry_seinfeld/2.jpg')
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 cv.imshow('Person', gray)
